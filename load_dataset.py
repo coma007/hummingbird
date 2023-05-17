@@ -33,8 +33,6 @@ def load_dataset(path):
     for folder in tqdm(os.listdir(path)):
         if ".csv" in folder:
             continue
-        if "Frozen" not in folder:
-            continue
         for file in os.listdir(os.path.join(path, folder)):
             features = mfccs_feature_extractor(
                 os.path.join(path, folder, file))
