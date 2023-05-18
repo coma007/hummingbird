@@ -1,12 +1,16 @@
+import glob
 from load_dataset import load_dataset
-import pandas as pd
+from prepare_dataset import prepare_dataset
 
 
 def main():
     data = load_dataset("small_dataset")
-    mlmp_df = pd.DataFrame(
-        data, columns=['song_file', 'interpreter', 'label', 'audio_type', 'mfccs'])
-    print(mlmp_df)
+    # print(data["audio_type"].unique())
+    filepaths = []
+    for label in (data["label"].unique()):
+        filepaths += sorted(glob.glob(f"small_dataset/*{label}*/*.wav"))
+    prepare_dataset(data, filepaths)
+    # print(filepaths)
 
 
 if __name__ == "__main__":
