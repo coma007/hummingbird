@@ -117,4 +117,4 @@ def scale_data(data, audio_types, labels):
 
     # saving the features into a csv for future reference
     allsong_feature_combine.to_csv(
-        'small_dataset/features.csv')
+        'dataset/features.csv')

@@ -4,11 +4,11 @@ from prepare_dataset import prepare_dataset
 
 
 def main():
-    data = load_dataset("small_dataset")
+    data = load_dataset("dataset")
     # print(data["audio_type"].unique())
     filepaths = []
     for label in (data["label"].unique()):
-        filepaths += sorted(glob.glob(f"small_dataset/*{label}*/*.wav"))
+        filepaths += sorted(glob.glob(f"dataset/*{label}*/*.wav"))
     prepare_dataset(data, filepaths)
     # print(filepaths)
 
